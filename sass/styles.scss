@@ -6,3 +6,83 @@
 
 // Import Bootstrap for Sass
 @import "bootstrap";
+@import "compass";
+@import "compass/reset";
+$bgColor : #3a383e;
+$mainColor :#fe6258;
+$baseColor :#fff;
+$linkColor :#b19570;
+$accentColor :#3a383e;
+$textColor :#696671;
+
+// Thema
+body {
+	background:$bgColor;
+	color:$textColor;
+	a {
+		color: $linkColor;
+		text-decoration: none;
+		@include transition(all, .3s, ease, 0);
+		&:hover,
+		&:focus {
+			text-decoration: none;
+			color: darken($linkColor, 20%);
+			@include transition(all, .3s, ease, 0);
+		}
+	}
+}
+@mixin thema-accent-light {
+	background:$mainColor;
+	color: #fff;
+	a {
+		color: #fff;
+		&:hover,
+		&:focus {
+			text-decoration: none;
+		}
+	}
+}
+#content {
+	background:$baseColor;
+}
+#header {
+	@include thema-accent-light;
+}
+#nav-header {
+	position: relative;
+	height: 100px;
+	ul {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform:translate(-50%,-50%);
+		li {
+			text-align: center;
+		}
+		li + li {
+			margin-left: 20px;
+		}
+	}
+}
+// Layout
+
+.l-col-items {
+	overflow: hidden;
+	@include legacy-pie-clearfix;
+	& > * {
+		float: left;
+	}
+}
+.center {
+	text-align: center;
+}
+
+// module
+
+.tit {
+	text-align: center;
+	margin: 80px auto;
+}
+
+
+
