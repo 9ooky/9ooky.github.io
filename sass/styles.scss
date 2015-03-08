@@ -1,88 +1,101 @@
 // Import Bootstrap Compass integration
 @import "bootstrap-compass";
-
 // Import custom Bootstrap variables
 @import "bootstrap-variables";
-
 // Import Bootstrap for Sass
 @import "bootstrap";
 @import "compass";
 @import "compass/reset";
-$bgColor : #3a383e;
-$mainColor :#fe6258;
-$baseColor :#fff;
-$linkColor :#b19570;
-$accentColor :#3a383e;
-$textColor :#696671;
-
+$bgColor: #3a383e;
+$mainColor:#fe6258;
+$baseColor:#fff;
+$linkColor:#b19570;
+$accentColor:#3a383e;
+$textColor:#696671;
 // Thema
 body {
-	background:$bgColor;
-	color:$textColor;
-	a {
-		color: $linkColor;
-		text-decoration: none;
-		@include transition(all, .3s, ease, 0);
-		&:hover,
-		&:focus {
-			text-decoration: none;
-			color: darken($linkColor, 20%);
-			@include transition(all, .3s, ease, 0);
-		}
-	}
+    background: $bgColor;
+    color: $textColor;
+    a {
+        color: $linkColor;
+        text-decoration: none;
+        @include transition(all, .3s, ease, 0);
+        &:hover, &:focus {
+            text-decoration: none;
+            color: darken($linkColor, 20%);
+            @include transition(all, .3s, ease, 0);
+        }
+    }
 }
 @mixin thema-accent-light {
-	background:$mainColor;
-	color: #fff;
-	a {
-		color: #fff;
-		&:hover,
-		&:focus {
-			text-decoration: none;
-		}
-	}
+    background: $mainColor;
+    color: #fff;
+    a {
+        color: #fff;
+        &:hover, &:focus {
+            text-decoration: none;
+        }
+    }
 }
 #content {
-	background:$baseColor;
+    background: $baseColor;
 }
 #header {
-	@include thema-accent-light;
+    @include thema-accent-light;
 }
 #nav-header {
-	position: relative;
-	height: 100px;
-	ul {
-		position: absolute;
-		left: 50%;
-		top: 50%;
-		transform:translate(-50%,-50%);
-		li {
-			text-align: center;
-		}
-		li + li {
-			margin-left: 20px;
-		}
-	}
+    position: relative;
+    height: 100px;
+    ul {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        li {
+            text-align: center;
+        }
+        li + li {
+            margin-left: 20px;
+        }
+    }
 }
 // Layout
-
 .l-col-items {
-	overflow: hidden;
-	@include legacy-pie-clearfix;
-	& > * {
-		float: left;
-	}
+    overflow: hidden;
+    @include legacy-pie-clearfix;
+    & > * {
+        float: left;
+    }
 }
 .center {
-	text-align: center;
+    text-align: center;
 }
-
 // module
-
 .tit {
-	text-align: center;
-	margin: 80px auto;
+    text-align: center;
+    margin: 80px auto;
+    position: relative;
+    &::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 1px;
+        background: rgba(0, 0, 0, .1);
+        position: absolute;
+        top: .3em;
+    }
+ 	&::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 1px;
+        background: rgba(0, 0, 0, .1);
+        position: absolute;
+        bottom: .3em;
+    }  
+    span {
+    	background:#fff;
+    	position: relative;
+    	z-index: 1;
+    }  
 }
-
-
-
