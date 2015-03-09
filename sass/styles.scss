@@ -14,7 +14,7 @@ $accentColor:#3a383e;
 $textColor:#696671;
 // Thema
 body {
-    font-family: "游ゴシック", "Yu Gothic", YuGothic, sans-serif;
+    font-family: quicksand,"游ゴシック", "Yu Gothic", YuGothic, sans-serif;
     background: $bgColor;
     color: $textColor;
     font-size: 18px;
@@ -73,37 +73,51 @@ body {
     text-align: center;
 }
 // module
-.tit {
+@mixin tit($fz,$cl,$bg) {
     font-family: quicksand, sans-serif;
     text-align: center;
-    margin: 80px auto;
     position: relative;
-    font-size: 18px;
+    font-size: $fz;
     &::before {
         content: '';
         display: block;
         width: 100%;
         height: 1px;
-        background: rgba(0, 0, 0, .1);
+        background: $cl;
         position: absolute;
         top: .3em;
     }
- 	&::after {
+    &::after {
         content: '';
         display: block;
-        width: 100%;
+        width: 90%;
         height: 1px;
-        background: rgba(0, 0, 0, .1);
+        background: $cl;
         position: absolute;
         bottom: .3em;
-    }  
+        left: 50%;
+        transform: translate(-50%,0);
+    }
     span {
-    	background:#fff;
-    	position: relative;
-    	z-index: 1;
-    }  
+        background: $bg;
+        position: relative;
+        z-index: 1;
+        padding: 0 20px;
+        display: inline-block;
+        letter-spacing: .3em;
+    }
 }
-
+.tit {
+    margin: 80px auto;
+    @include tit(18px,#ccc,$baseColor);
+}
+.tit-dark {
+    margin: 40px auto;
+    width: 70%;
+    font-size: 61.1111%;
+    font-weight: bold;
+    @include tit(15px,#666,$bgColor);
+}
 .blog-index {
     li {
         border-top: 1px solid #ebeaec;
@@ -134,8 +148,48 @@ body {
                 vertical-align: middle;
                 width: 80px;
                 height: 80px;
-                padding:10px;
+                padding: 10px;
             }
         }
+    }
+}
+.mask {
+    width: 180px;
+    -webkit-mask-image: url('../images/mask.svg');
+    -webkit-mask-size: 180px 180px;
+    -moz-mask-image: url('../images/mask.svg');
+    -moz-mask-size: 180px 180px;
+    mask-image: url('../images/mask.svg');
+    mask-size: 180px 180px;
+}
+#footer-inner {
+    padding:20px 0 40px 0;
+    .thumb-footer {
+        margin: 40px 0 20px 0;
+    }
+    .txt-meta {
+        font-size: 75%;
+        line-height: 1.5;
+        text-align: center;
+    }
+}
+.index-sns {
+    margin-left: 10px;
+        li{
+        font-size: 70%;
+        margin-bottom: 10px;
+        i {
+            font-size: 140%;
+            vertical-align: middle;
+        }
+        .list-item-tw:hover {
+            color: #57cfff;
+        }
+        .list-item-bh:hover {
+            color: #1769ff;
+        }
+        .list-item-pin:hover {
+            color: #fe6258;
+        }        
     }
 }
