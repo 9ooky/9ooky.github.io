@@ -14,8 +14,10 @@ $accentColor:#3a383e;
 $textColor:#696671;
 // Thema
 body {
+    font-family: "游ゴシック", "Yu Gothic", YuGothic, sans-serif;
     background: $bgColor;
     color: $textColor;
+    font-size: 18px;
     a {
         color: $linkColor;
         text-decoration: none;
@@ -72,9 +74,11 @@ body {
 }
 // module
 .tit {
+    font-family: quicksand, sans-serif;
     text-align: center;
     margin: 80px auto;
     position: relative;
+    font-size: 18px;
     &::before {
         content: '';
         display: block;
@@ -98,4 +102,40 @@ body {
     	position: relative;
     	z-index: 1;
     }  
+}
+
+.blog-index {
+    li {
+        border-top: 1px solid #ebeaec;
+        &:first-child {
+            border: none;
+        }
+        a {
+            display: table;
+            position: relative;
+            width: 100%;
+            height: 100px;
+            .txt-blog-index {
+                display: table-cell;
+                vertical-align: middle;
+                .tit-blog-index {
+                    font-size: 1.5em;
+                    line-height: 1;
+                    margin-bottom: 10px;
+                }
+                .meta-blog-index {
+                    font-family: quicksand, sans-serif;
+                    opacity: .6;
+                    font-size: 70%;
+                }
+            }
+            .thumb-blog-index {
+                display: table-cell;
+                vertical-align: middle;
+                width: 80px;
+                height: 80px;
+                padding:10px;
+            }
+        }
+    }
 }
